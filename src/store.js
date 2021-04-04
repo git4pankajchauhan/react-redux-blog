@@ -22,6 +22,7 @@ const postReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'CREATE_POST':
       return {
+        ...state,
         posts: [action.payload, ...state.posts],
       };
       break;
