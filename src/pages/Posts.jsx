@@ -15,8 +15,8 @@ const Posts = () => {
           <AddPost />
         </div>
         <div className="post-container">
-          {posts.map(item => {
-            return <Post key={item._id} id={item._id} tags={item.tags} sub_title={item.sub_title} title={item.title} content={item.content} />;
+          {posts.map(post => {
+            return <Post key={post._id} post={post} />;
           })}
         </div>
       </div>

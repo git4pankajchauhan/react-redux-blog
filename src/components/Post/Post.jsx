@@ -5,8 +5,8 @@ import { NavLink } from 'react-router-dom';
 import themes from 'themes/themes';
 import './Post.scss';
 
-const Post = props => {
-  const { id, tags, title, sub_title } = props;
+const Post = ({ post }) => {
+  const { id, tags, title, sub_title } = post;
   return (
     <div className="post-box">
       <div className="post-info">

@@ -4,9 +4,12 @@ import CustomDrawer from 'components/Drawer/CustomDrawer';
 import { CustomInput, CustomTextArea } from 'components/Input/CustomInput';
 import React, { useState } from 'react';
 import themes from 'themes/themes';
+import { useDispatch } from 'react-redux';
+import { addPost } from 'store';
 
 const AddPost = () => {
-  const [addPost, setAddPost] = useState({
+  const dispatch = useDispatch();
+  const [post, setPost] = useState({
     title: '',
     sub_title: '',
     tags: '',
@@ -15,7 +18,7 @@ const AddPost = () => {
 
   const inputChange = e => {
     const { name, value } = e.target;
-    setAddPost(preVal => {
+    setPost(preVal => {
       return {
         ...preVal,
         [name]: value,
@@ -25,6 +28,7 @@ const AddPost = () => {
 
   const createPost = e => {
     e.preventDefault();
+    dispatch(addPost(post));
   };
   return (
     <CustomDrawer btnText="Create New Post" icon={<Add />} label="Edit Profile">
